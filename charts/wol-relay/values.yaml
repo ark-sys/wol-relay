@@ -1,0 +1,45 @@
+# Default values for wol-relay.
+replicaCount: 1
+image:
+  repository: ghcr.io/ark-sys/wol-relay
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+podAnnotations: {}
+podSecurityContext: {}
+  # fsGroup: 2000
+securityContext:
+  allowPrivilegeEscalation: false
+  runAsNonRoot: true
+  runAsUser: 65532
+  runAsGroup: 65532
+  capabilities:
+    drop:
+      - ALL
+# Requires hostNetwork to emit LAN broadcasts on the physical interface
+hostNetwork: true
+dnsPolicy: ClusterFirstWithHostNet
+service:
+  type: ClusterIP
+  port: 8089
+env:
+  LISTEN_ADDR: ":8089"
+  DEFAULT_BROADCAST: "255.255.255.255"
+  DEFAULT_PORT: "9"
+resources:
+  limits:
+    cpu: 50m
+    memory: 32Mi
+  requests:
+    cpu: 10m
+    memory: 16Mi
+nodeSelector: {}
+tolerations: []
+affinity: {}

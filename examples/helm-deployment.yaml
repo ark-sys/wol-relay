@@ -1,0 +1,26 @@
+# Here is an example of an ArgoCD Application using the local Helm configuration
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wol-relay
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/ark-sys/wol-relay.git
+    path: charts/wol-relay
+    targetRevision: HEAD
+    helm:
+      values: |
+        hostNetwork: true
+        env:
+          LISTEN_ADDR: ":8089"
+          DEFAULT_BROADCAST: "192.168.1.255"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: wol-relay
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
