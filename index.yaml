@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  wol-relay:
+  - apiVersion: v2
+    appVersion: 1.0.1
+    created: "2026-06-03T19:32:49.261521001Z"
+    description: A lightweight HTTP-to-UDP Wake-on-LAN relay
+    digest: b0ff1ca1ff969e09ef7e60ce357560451c89f90c99e744dc5878dca010a3faeb
+    name: wol-relay
+    type: application
+    urls:
+    - https://github.com/ark-sys/wol-relay/releases/download/wol-relay-1.0.1/wol-relay-1.0.1.tgz
+    version: 1.0.1
+generated: "2026-06-03T19:32:49.26152487Z"
