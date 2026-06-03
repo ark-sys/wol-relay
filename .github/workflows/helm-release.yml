@@ -10,7 +10,7 @@ on:
 jobs:
   release:
     permissions:
-      contents: write # needed to push chart release to gh-pages and create github release
+      contents: write
       packages: write
     runs-on: ubuntu-latest
     steps:
