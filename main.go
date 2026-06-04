@@ -123,6 +123,7 @@ func envOr(key, def string) string {
 }
 
 func main() {
+    log.Printf("wol-relay starting with PID %d", os.Getpid())
 	listenAddr := envOr("LISTEN_ADDR", ":8089")
 	defaultBroadcast := envOr("DEFAULT_BROADCAST", "255.255.255.255")
 	defaultPort := 9
