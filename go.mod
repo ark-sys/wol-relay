@@ -1,3 +1,3 @@
-module horizonscloud.ovh/horizonscloud/wol-relay
+module github.com/ark-sys/wol-relay
 
 go 1.24
